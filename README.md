@@ -59,3 +59,6 @@ never alters.
 Sources:
   <http://www.iamnotmyself.com/2011/02/13/RefactorThisTheGildedRoseKata.aspx>
   <https://github.com/professor/GildedRose>
+=============================
+
+Code Kata - week 4
