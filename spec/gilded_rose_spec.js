@@ -3,7 +3,7 @@ describe("Gilded Rose", function() {
   it("should do something", function() {
     update_quality
   });
-  
+
   it("constructor's attributes", function(){
     var i = new Item('+5 Dexterity Vest', 10, 20);
     expect(i.name).toEqual('+5 Dexterity Vest');
@@ -38,14 +38,14 @@ describe("Gilded Rose", function() {
     update_quality();
     expect(item.quality).toEqual(2)
   });
-    
+
   it(" The quality of an item is never more than 50", function(){
     var item = new Item('Aged Brie', 1, 50);
     items.push(item);
     update_quality();
     expect(item.quality).toEqual(50)
   });
-  
+
   it("'Sulfuras, Hand of Ragnaros', being a legendary item, never has to be sold nor does it decrease in quality", function(){
     var item = new Item('Sulfuras, Hand of Ragnaros', 1, 20);
     items.push(item);
@@ -53,7 +53,15 @@ describe("Gilded Rose", function() {
     expect(item.sell_in).toEqual(1);
     expect(item.quality).toEqual(20);
   });
-  
+
+  it("The quality of Sulfuras, is always 80", function(){
+    var item = new Item('Sulfuras, Hand of Ragnaros', 1, 80);
+    items.push(item);
+    update_quality();
+    expect(item.quality).toEqual(80);
+  });
+
+
   it("Backstage passes ike aged brie, increases in quality as it's sell_in value decreases", function(){
     var item = new Item('Backstage passes to a TAFKAL80ETC concert', 20, 1);
     items.push(item);
