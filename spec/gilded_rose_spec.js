@@ -20,11 +20,12 @@ describe("Gilded Rose", function() {
   });
 
   it("Once the sell_in days is less then zero, quality degrades twice as fast", function(){
-    var item = new Item("cheese", 0, 5);
+    var item = new Item("cheese", -1, 5);
     items.push(item);
     update_quality();
     expect(item.quality).toEqual(3)
     });
+
   it("The quality of an item is never negative", function(){
     var item = new Item("cheese", 0, 1);
     items.push(item);
@@ -39,7 +40,7 @@ describe("Gilded Rose", function() {
     expect(item.quality).toEqual(2)
   });
 
-  it(" The quality of an item is never more than 50", function(){
+  it("The quality of an item is never more than 50", function(){
     var item = new Item('Aged Brie', 1, 50);
     items.push(item);
     update_quality();
@@ -62,21 +63,21 @@ describe("Gilded Rose", function() {
   });
 
 
-  it("Backstage passes ike aged brie, increases in quality as it's sell_in value decreases", function(){
+  it("Backstage passes like aged brie, increases in quality as it's sell_in value decreases", function(){
     var item = new Item('Backstage passes to a TAFKAL80ETC concert', 20, 1);
     items.push(item);
         update_quality();
         expect(item.quality).toEqual(2)
    });
 
-  it("Backstage passes ike aged brie, increases in quality by 2 when sell_in is less than 10", function(){
+  it("Backstage passes like aged brie, increases in quality by 2 when sell_in is less than 10", function(){
     var item = new Item('Backstage passes to a TAFKAL80ETC concert', 10, 1);
     items.push(item);
     update_quality();
     expect(item.quality).toEqual(3)
   });
 
-  it("Backstage passes ike aged brie, increases in quality by 3 when sell_in is less than 5", function(){
+  it("Backstage passes like aged brie, increases in quality by 3 when sell_in is less than 5", function(){
     var item = new Item('Backstage passes to a TAFKAL80ETC concert', 4, 1);
     items.push(item);
     update_quality();
