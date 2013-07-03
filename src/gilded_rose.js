@@ -14,8 +14,7 @@ items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
 items.push(new Item('Conjured Mana Cake', 3, 6));
 
 var update_generic_items = function (item){
-  if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert' && item.name != 'Sulfuras, Hand of Ragnaros') 
-  {
+  if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert' && item.name != 'Sulfuras, Hand of Ragnaros'){
     if (item.quality > 0) {
       item.quality = item.quality - 1
     }
@@ -27,48 +26,39 @@ var update_generic_items = function (item){
 
 
 function update_quality() {
-  for (var i = 0; i < items.length; i++) 
-  {
+  for (var i = 0; i < items.length; i++){
     update_generic_items(items[i]);
   
     
-    if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert')
-    {
-      if (items[i].quality < 50) 
-      {
+    if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert'){
+      if (items[i].quality < 50) {
         items[i].quality = items[i].quality + 1
       
         
-        if (items[i].sell_in < 11) 
-        {
+        if (items[i].sell_in < 11) {
           items[i].quality = items[i].quality + 1
         }
         
-        if (items[i].sell_in < 6) 
-        {
+        if (items[i].sell_in < 6) {
           items[i].quality = items[i].quality + 1
         }
       }
         
-      if (items[i].sell_in < 1) 
-      {
+      if (items[i].sell_in < 1) {
         items[i].quality = 0
       }
     }
-
-    if (items[i].name != 'Sulfuras, Hand of Ragnaros') 
-    {
-      items[i].sell_in = items[i].sell_in - 1;
-    }
     
-    if ( items[i].name == 'Aged Brie' && items[i].quality < 50)
-    {
+    if ( items[i].name == 'Aged Brie' && items[i].quality < 50){
       items[i].quality = items[i].quality + 1
       
-      if (items[i].sell_in < 0) 
-      {
+      if (items[i].sell_in < 0) {
         items[i].quality = items[i].quality + 1
       }
+    }
+    
+    if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
+      items[i].sell_in = items[i].sell_in - 1;
     }
   }
 }
