@@ -24,34 +24,28 @@ var update_generic_items = function (item){
   }
 }
 
-
 function update_quality() {
   for (var i = 0; i < items.length; i++){
     update_generic_items(items[i]);
-  
     
     if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert'){
       if (items[i].quality < 50) {
         items[i].quality = items[i].quality + 1
-      
         
         if (items[i].sell_in < 11) {
           items[i].quality = items[i].quality + 1
         }
-        
         if (items[i].sell_in < 6) {
           items[i].quality = items[i].quality + 1
         }
-      }
-        
+      }        
       if (items[i].sell_in < 1) {
         items[i].quality = 0
       }
     }
     
     if ( items[i].name == 'Aged Brie' && items[i].quality < 50){
-      items[i].quality = items[i].quality + 1
-      
+      items[i].quality = items[i].quality + 1      
       if (items[i].sell_in < 0) {
         items[i].quality = items[i].quality + 1
       }
